@@ -31,7 +31,7 @@ type GCSEvent struct {
 }
 
 // ImageConvert blurs offensive images uploaded to GCS.
-func BlurOffensiveImages(ctx context.Context, e GCSEvent) error {
+func ImageConvert(ctx context.Context, e GCSEvent) error {
 	outputBucket := os.Getenv("THUMBNAILED")
 	if outputBucket == "" {
 		return errors.New("THUMBNAILED must be set")

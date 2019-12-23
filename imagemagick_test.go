@@ -22,7 +22,7 @@ import (
 	"testing"
 )
 
-func TestBlurOffensiveImages(t *testing.T) {
+func TestImageConvert(t *testing.T) {
 	projectID := os.Getenv("GOLANG_SAMPLES_PROJECT_ID")
 	if projectID == "" {
 		t.Skip("GOLANG_SAMPLES_PROJECT_ID not set")
@@ -49,12 +49,12 @@ func TestBlurOffensiveImages(t *testing.T) {
 	outputBlob := b.Object(e.Name)
 	outputBlob.Delete(ctx) // Ensure the output file doesn't already exist.
 
-	if err := BlurOffensiveImages(ctx, e); err != nil {
-		t.Fatalf("BlurOffensiveImages(%v) got error: %v", e, err)
+	if err := ImageConvert(ctx, e); err != nil {
+		t.Fatalf("ImageConvert(%v) got error: %v", e, err)
 	}
 
 	if _, err := outputBlob.Attrs(ctx); err != nil {
-		t.Fatalf("BlurOffensiveImages(%v) got error when checking output: %v", e, err)
+		t.Fatalf("ImageConvert(%v) got error when checking output: %v", e, err)
 	}
 	outputBlob.Delete(ctx)
 }
