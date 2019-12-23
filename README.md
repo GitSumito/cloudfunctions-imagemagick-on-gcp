@@ -13,6 +13,6 @@ cd golang-samples/functions/imagemagick/
 
 gcloud functions deploy BlurOffensiveImages --runtime go111 --trigger-bucket $YOUR_INPUT_BUCKET_NAME --set-env-vars BLURRED_BUCKET_NAME=$YOUR_OUTPUT_BUCKET_NAME
 
-gsutil cp *.jpg gs://$YOUR_INPUT_BUCKET_NAME
+gsutil cp *.png gs://$YOUR_INPUT_BUCKET_NAME
 ```
 
